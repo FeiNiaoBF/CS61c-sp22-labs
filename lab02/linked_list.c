@@ -33,7 +33,7 @@ void add_to_front(struct Node **head, int data) {
     because that would result in a segfault */
     if (head == NULL) return;
     struct Node *new_node = create_node(data);
-    /* The new node's next should point to the head 
+    /* The new node's next should point to the head
        (this works even if the head is NULL) */
     new_node->next = *head;
     /* We must set HEAD using the following line in order to change the original list */
@@ -53,7 +53,8 @@ void print_list(struct Node *head) {
 
 /* Iteratively reverses a linked list whose first node is HEAD */
 void reverse_list(struct Node **head) {
-    if (head == NULL) {
+    if (head == NULL || *head == NULL)
+    {
         return;
     }
     struct Node *curr = *head;

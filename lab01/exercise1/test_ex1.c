@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
     assert(dna_seq_1.G_count == 1);
     assert(dna_seq_1.T_count == 3);
 
+    printf("Congrats! If you have made it to this line, your Part 2-1 Test cases are all passing!\n");
     DNA_sequence dna_seq_2;
     strcpy(dna_seq_2.sequence, "AAAACCC");
     compute_nucleotide_occurrences(&dna_seq_2);
@@ -34,10 +35,17 @@ int main(int argc, char **argv) {
     assert(dna_seq_2.C_count == 3);
     assert(dna_seq_2.G_count == 0);
     assert(dna_seq_2.T_count == 0);
-
+    printf("Congrats! If you have made it to this line, your Part 2-2 Test cases are all passing!\n");
     /* TODO: Think of a scenario that is not tested by the current test cases. Create one additional test case to test this scenario. */
 
-    printf("Congrats! If you have made it to this line, your Part 2 Test cases are all passing!\n");
+    DNA_sequence dna_seq_3;
+    strcpy(dna_seq_3.sequence, "AAAAAAAAAAAAAAAAAAAAA");
+    compute_nucleotide_occurrences(&dna_seq_3);
+    assert(dna_seq_3.A_count == 21);
+    assert(dna_seq_3.C_count == 0);
+    assert(dna_seq_3.G_count == 0);
+    assert(dna_seq_3.T_count == 0);
+    printf("Congrats! If you have made it to this line, your Part 2-3 Test cases are all passing!\n");
 
     return 0;
 }
