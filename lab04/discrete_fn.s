@@ -20,16 +20,16 @@ main:
 	######### evaluate f(-3), should be 6 #########
     # load the address of the string located at neg3 into a0
     # this will serve as the argument to print_str
-    la a0, neg3 
+    la a0, neg3
     # print out the string located at neg3
-    jal print_str 
+    jal print_str
     # load the first argument to f into a0
-    li a0, -3 
+    li a0, -3
     # load the second argument of f into a1
     # `output` is a pointer to an array that contains the possible output values of f
     la a1, output
     # execute f(-3)
-    jal f     
+    jal f
     # f will return the output of f(-3) into register a0
     # to print out the return value, we will call print_int
     # print_int expects the value that it's printing out to be in register a0
@@ -43,7 +43,7 @@ main:
     jal print_str
     li a0, -2
     la a1, output
-    jal f                
+    jal f
     jal print_int
     jal print_newline
 
@@ -52,7 +52,7 @@ main:
     jal print_str
     li a0, -1
     la a1, output
-    jal f               
+    jal f
     jal print_int
     jal print_newline
 
@@ -61,7 +61,7 @@ main:
     jal print_str
     li a0, 0
     la a1, output
-    jal f               
+    jal f
     jal print_int
     jal print_newline
 
@@ -70,7 +70,7 @@ main:
     jal print_str
     li a0, 1
     la a1, output
-    jal f                
+    jal f
     jal print_int
     jal print_newline
 
@@ -79,7 +79,7 @@ main:
     jal print_str
     li a0, 2
     la a1, output
-    jal f               
+    jal f
     jal print_int
     jal print_newline
 
@@ -88,7 +88,7 @@ main:
     jal print_str
     li a0, 3
     la a1, output
-    jal f                
+    jal f
     jal print_int
     jal print_newline
 
@@ -101,6 +101,11 @@ main:
 # a1 is the address of the "output" array (defined above).
 f:
     # YOUR CODE GOES HERE!
+    addi t0, a0, 3 # -3 + 3 = 0 first index is 0
+    add t1, a1, x0
+    slli t2, t0, 2
+    add t1, t2, t1
+    lw a0, 0(t1)
 
     jr ra               # Always remember to jr ra after your function!
 
