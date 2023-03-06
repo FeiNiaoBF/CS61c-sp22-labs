@@ -1,5 +1,5 @@
 # void accessWords(int array_size, int step_size, int rep_count, int option) {
-#     for (int k = 0; k < rep_count; k++) { 
+#     for (int k = 0; k < rep_count; k++) {
 #         for (int index = 0; index < array_size; index += step_size) {
 #             if (option == 0)
 #                 array[index] = 0; // Option 0: One cache access - write
@@ -26,7 +26,7 @@ main:	li	a0, 128	# array size in BYTES (should be a power of 2 < array size)
 	li	a1, 1 # step size  (should be a power of 2 > 0)
 	li	a2, 1 # rep count  (int > 0)
 	li	a3, 0 # 0 = option 0, 1 = option 1
-	jal	accessWords	
+	jal	accessWords
 	li	a0, 10 # exit
 	ecall
 
